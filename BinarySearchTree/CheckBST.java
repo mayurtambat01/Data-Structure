@@ -1,5 +1,7 @@
+/*Given a binary tree with N number of nodes, check if that input tree is BST (Binary Search Tree). If yes, return true, return false otherwise.
 
-package BinarySearchTree;
+Note:
+Duplicate elements should be kept in the right subtree. */
 
 public class CheckBST {
 

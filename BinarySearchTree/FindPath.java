@@ -8,12 +8,12 @@ Note: Assume that BST contains all unique elements.
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class GetRootToNodePath {
+public class FindPath {
 
-    public static BinarySearchTree<Integer> takeInput(Scanner s){
+    public static BinaryTreeNode<Integer> takeInput(Scanner s){
         System.out.println("Enter next Node");
         int rootData = s.nextInt();
-        BinarySearchTree<Integer> root = new BinarySearchTree<Integer>(rootData);
+        BinaryTreeNode<Integer> root = new BinaryTreeNode<Integer>(rootData);
         if (root.data == -1) {
             return null;
         }
@@ -22,7 +22,7 @@ public class GetRootToNodePath {
 
         return root;
     }
-    public static ArrayList<Integer> findPath(BinarySearchTree<Integer> root,int data){
+    public static ArrayList<Integer> findPath(BinaryTreeNode<Integer> root,int data){
         if (root==null) {
             return null;
         }
@@ -48,7 +48,7 @@ public class GetRootToNodePath {
 
     public static void main(String[] args) {
         Scanner s = new Scanner(System.in);
-        BinarySearchTree<Integer> root = takeInput(s);
+        BinaryTreeNode<Integer> root = takeInput(s);
         ArrayList<Integer> rootData = findPath(root, 4);
         System.out.println(rootData);        
     }

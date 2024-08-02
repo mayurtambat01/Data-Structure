@@ -14,7 +14,7 @@ true
 
 public class SearchInBST {
 
-    public static boolean searchBST(BinarySearchTree<Integer> root,int k){
+    public static boolean searchBST(BinaryTreeNode<Integer> root,int k){
         if (root==null) {
             return false;
         }

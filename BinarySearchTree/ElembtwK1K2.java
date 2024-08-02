@@ -11,7 +11,7 @@ Sample Output 1:
 
 public class ElembtwK1K2 {
 
-    public static void elembtwk1k2(BinarySearchTree<Integer> root,int k1,int k2){
+    public static void elembtwk1k2(BinaryTreeNode<Integer> root,int k1,int k2){
         if (root==null) {
             return;
         }

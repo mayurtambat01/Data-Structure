@@ -5,10 +5,10 @@ Duplicate elements should be kept in the right subtree. */
 
 public class CheckBST {
 
-    public static boolean isBST(BinarySearchTree<Integer> root){
+    public static boolean isBST(BinaryTreeNode<Integer> root){
         return isBST(root, Long.MIN_VALUE, Long.MAX_VALUE);
     }
-    public static boolean isBST(BinarySearchTree<Integer> root,long min,long max){
+    public static boolean isBST(BinaryTreeNode<Integer> root,long min,long max){
         if (root==null) {
             return true;
         }

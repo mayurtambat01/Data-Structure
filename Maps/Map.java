@@ -1,4 +1,4 @@
-//HashMap Implementation - 1:
+// HashMap Implementation.
 
 import java.util.ArrayList;
 
@@ -16,25 +16,56 @@ public class Map<K,V> {
         }
     }
 
-    private int getBucketIndex(K key){
+    private int hasBucketIndex(K key){
         int hashCode = key.hashCode();
         return hashCode % numBuckets;
     }
-
     public void insert(K key,V value){
-        int bucketIndex = getBucketIndex(key);
+        int bucketIndex = hasBucketIndex(key);
         MapNode<K,V> head = buckets.get(bucketIndex);
-        while (head != null) {
-            if (head.key.equals(key)) {
+        while (head != null){
+            if (head.key.equals(key)){
                 head.value = value;
                 return;
             }
             head = head.next;
         }
-    head = buckets.get(bucketIndex);
-    MapNode<K,V> newElementNode = new MapNode<K,V>(key, value);
-    newElementNode.next = head;
-    buckets.set(bucketIndex, newElementNode);
+        head = buckets.get(bucketIndex);
+        MapNode<K,V> newElementNode = new MapNode<K,V>(key, value);
+        newElementNode.next = head;
+        buckets.set(bucketIndex, newElementNode);
     }
-    
+
+    public int size(){
+        return size;
+    }
+    public V getValue(K key){
+        int bucketIndex = hasBucketIndex(key);
+        MapNode<K,V> head = buckets.get(bucketIndex);
+        while (head != null){
+            if (head.key.equals(key)){
+                return head.value;
+            }
+            head = head.next;
+        }
+        return null;
+    }
+    public V removeKey(K key){
+        int bucketIndex = hasBucketIndex(key);
+        MapNode<K,V> head = buckets.get(bucketIndex);
+        MapNode<K,V> prev = null;
+        while (head != null){
+            if (head.key.equals(key)){
+                if (prev == null) {
+                    buckets.set(bucketIndex, head.next);
+                }else{
+                    prev.next = head.next;
+                }
+                return head.value;
+            }
+            prev = head;
+            head = head.next;
+        }
+        return null;
+    }
 }
